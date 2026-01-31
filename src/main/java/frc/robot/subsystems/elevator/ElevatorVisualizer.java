@@ -44,7 +44,8 @@ public class ElevatorVisualizer {
     
     public void update(double elevatorHeight) {
         // UPDATE THE POSITION OF THE ELEVATOR MECHANISM ROOT
-        e; // error to make you look at ts 
+        elevator.setPosition(8, elevatorHeight + 5);
+        // error to make you look at ts 
 
         SmartDashboard.putData("Visualizers/Elevator", canvas);
     }

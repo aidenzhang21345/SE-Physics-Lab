@@ -62,13 +62,13 @@ public class RobotContainer {
       Commands.run(() -> swerveDrive.setXMode(), swerveDrive)
     );
 
-    // // Elevator
-    // driverController.a().whileTrue(new ElevatorStow()); // z
-    // driverController.b().whileTrue(new ElevatorL1()); // x
-    // driverController.x().whileTrue(new ElevatorL2()); // c
-    // driverController.y().whileTrue(new ElevatorL3()); // v
+    // Elevator
+    driverController.a().whileTrue(new ElevatorStow()); // z
+    driverController.b().whileTrue(new ElevatorL1()); // x
+    driverController.x().whileTrue(new ElevatorL2()); // c
+    driverController.y().whileTrue(new ElevatorL3()); // v
 
-    // Arm
+   // Arm
     driverController.a().whileTrue(new ArmOne()); // z
     driverController.b().whileTrue(new ArmTwo()); // x
     driverController.x().whileTrue(new ArmThree()); // c

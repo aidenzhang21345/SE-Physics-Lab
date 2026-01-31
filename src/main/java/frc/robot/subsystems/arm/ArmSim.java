@@ -9,6 +9,7 @@ import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.system.plant.LinearSystemId;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.units.Measure;
 import edu.wpi.first.wpilibj.simulation.SingleJointedArmSim;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.constants.Constants;
@@ -61,7 +62,7 @@ public class ArmSim extends Arm {
         setpoint = profile.calculate(0.020, setpoint, goal);
 
         // USE THE PID CONTROLLER TO CALCULATE THE VOLTAGE TO REACH THE TARGET ANGLE
-        // double voltage = 
+        double voltage = controller.calculate(sim.getAngleRads(), setpoint.position);
 
         sim.setInputVoltage(voltage);
         sim.update(0.02);
@@ -71,6 +72,7 @@ public class ArmSim extends Arm {
         SmartDashboard.putNumber("Arm/voltage", voltage);
 
         // UPDATE THE ANGLE OF THE ARM VISUALIZER
+        visualizer.updateArmAngle(new Rotation2d(sim.getAngleRads()));
     }
 
 }

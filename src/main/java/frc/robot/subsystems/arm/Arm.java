@@ -7,6 +7,15 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Settings;
 
 public class Arm extends SubsystemBase {
+    private static ArmSim instance;
+
+    static {
+        instance = new ArmSim();
+    }
+
+    public static ArmSim getInstance() {
+        return instance;
+    }
 
     // WRITE SINGLETON HERE!!!
     // What is a singleton you may ask? 
@@ -14,7 +23,10 @@ public class Arm extends SubsystemBase {
     // Make sure to instantiate to ArmSim()
 
     public enum ArmState {
-        ONE(Rotation2d.kZero);
+        ONE(Rotation2d.kZero),
+        TWO(Settings.Arm.MIN_ANGLE),
+        THREE(Rotation2d.fromDegrees(72.5)),
+        FOUR(Settings.Arm.MAX_ANGLE);
         // WRITE 3 MORE ARM STATES: TWO THREE FOUR
 
         private Rotation2d targetAngle;
