@@ -10,6 +10,8 @@ public class ArmSetState extends InstantCommand {
 
     public ArmSetState(ArmState state) {
         this.state = state;
+
+        addRequirements(arm);
     }
 
     public void execute() {
