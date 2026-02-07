@@ -56,7 +56,7 @@ public class Elevator extends SubsystemBase {
     @Override
     public void periodic() {
         // LOG THE TARGET HEIGHT AND STATE OF THE ELEVATOR
-        SmartDashboard.putNumber("Elevator/Target Height", state.getTargetHeight());
-        SmartDashboard.putString("Elevator/State", state.toString());
+        SmartDashboard.putNumber("Elevator/Target Height", getState().getTargetHeight());
+        SmartDashboard.putString("Elevator/State", getState().toString());
     }
 }
